@@ -1,0 +1,32 @@
+.card_container {
+  .Card{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+        align-items: center;
+        margin-bottom: 50px;
+        .card_img {
+            width: 400px;
+            //height: 400px;           
+            .card_name {
+                background-color: rgb(231, 213, 207);
+                .card-text {
+                    font-weight: bold;
+                    font-size: 25px;
+                    text-align: center;
+                }
+
+                .card-price {
+                    display: flex;
+                    justify-content: space-around;
+                    color: red;
+                    font-size: 17px;
+                    font-weight: bold;
+                }
+            }
+            
+        }
+    }
+    
+}

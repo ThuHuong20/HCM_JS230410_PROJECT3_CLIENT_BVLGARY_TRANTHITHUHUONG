@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  box-sizing: border-box
+}
+
+#search_box {
+  button {
+    padding: unset !important;
+    border: unset !important;
+    background-color: unset !important;
+  }
+}
+
+.ant-message {
+  z-index: 10000000 !important;
+  position: fixed !important;
+}

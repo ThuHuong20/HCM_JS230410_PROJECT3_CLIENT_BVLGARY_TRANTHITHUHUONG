@@ -1,0 +1,73 @@
+.form-control {
+    background-color: white !important;
+}
+
+.button-register {
+    margin-top: 20px !important;
+    width: 100%;
+    margin-bottom: 15px !important;
+    background-color: rgb(175, 149, 192);
+}
+input {
+    margin: 15px 0px;
+}
+// login
+.button-login {
+    width: 100%;
+}
+//profile
+
+.profile {
+    margin-left: 10px;
+    margin: auto;
+    margin-top: 100px;
+    width: 800px;
+    border-radius: 10px;
+    padding: 20px;
+    -webkit-box-shadow: 5px 3px 13px 3px rgba(30, 36, 36, 0.72);
+        box-shadow: 5px 3px 13px 3px rgba(43, 49, 49, 0.72);
+        -moz-transform: none;
+        -webkit-transform: none;
+        -o-transform: none;
+        -ms-transform: none;
+        transform: none;
+
+    .profile_title {
+        border-bottom: 3px solid rgb(19, 132, 150);
+        i {
+            margin-top: 10px;
+        }
+        display: flex;
+    }
+    input {
+        border: 1px solid;
+        padding: 5px;
+        width: 100%;
+        border-radius: 5px;
+    }
+}
+// admin
+.form_container {
+    .form_add {
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-around;
+       
+    }
+    .form_add_avatar {
+        margin-top: 20px;
+    }
+    .form_add_product {
+        margin-top: 20px;
+        input {
+            width: 400px;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        button{
+            width: 400px;
+            margin-bottom: 20px;
+        }
+    }
+}
