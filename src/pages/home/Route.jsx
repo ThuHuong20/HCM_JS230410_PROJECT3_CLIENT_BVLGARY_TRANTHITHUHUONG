@@ -11,30 +11,7 @@ import api from "@api";
 import Receipts from "./components/Receipts";
 import NotAccept from "./components/NotAccept";
 
-import AdminRoute from "../admin/Route"
-let isAdmin = false;
-
-async function authenAdmin() {
-  await api.users
-    .authenToken({
-      token: localStorage.getItem("token"),
-    })
-    .then((res) => {
-      if (res.status == 200) {
-        if (res.data.data.role == "ADMIN") {
-          isAdmin = true;
-        }
-      }
-    })
-    .catch((err) => {
-      console.log("err", err);
-    });
-  if (isAdmin) {
-    return LazyLoad(() => import("../auths/Admin"))();
-  } else {
-    return <>404</>;
-  }
-}
+import AdminRoute from "../admin/Route";
 
 async function authenPayment() {
   let acceptNext = false;

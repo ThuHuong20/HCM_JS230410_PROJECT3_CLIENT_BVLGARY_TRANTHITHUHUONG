@@ -51,8 +51,8 @@ export default function Payment() {
           content: "Thank you for your purchase",
           onOk: () => {
             window.location.href = "/receipts";
-          }
-        })
+          },
+        });
 
         // chuyển trang receipt
         //console.log("Đã save receipt", res.data);

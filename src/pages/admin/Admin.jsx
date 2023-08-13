@@ -1,14 +1,18 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-
+import React from "react";
+import { Outlet } from "react-router-dom";
+import './auth.scss'
 export default function Admin() {
   return (
-    <div>
-        <h1>Admin</h1>
-        <ul>
-            <li>Products</li>
-        </ul>
-        <Outlet></Outlet>
+    <div >
+      <h1 style={{marginLeft:"650px"}}>
+        <a style={{textDecoration:"none",color:"black"}} href="/admin">ADMIN</a>
+      </h1>
+      <ul>
+        <li>
+          <a style={{textDecoration:"none",color:"black"}} href="/admin/product-manage">Product Manage</a>
+        </li>
+      </ul>
+      <Outlet></Outlet>
     </div>
-  )
+  );
 }

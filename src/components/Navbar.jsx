@@ -53,9 +53,8 @@ export default function Navbar() {
     totalCartAsync();
   }, [localCartState]);
 
-  
   useEffect(() => {
-    console.log("userStore", userStore)
+    console.log("userStore", userStore);
   }, [userStore.data]);
 
   function totalCart() {
@@ -182,11 +181,11 @@ export default function Navbar() {
                     //alert("Are you sure want to logout?");
                     Modal.confirm({
                       content: "Are you sure want to logout?",
-                       onOk: () => {
-                              window.location.href = "/";
-                            },
-                    }); 
-                     localStorage.removeItem("token");
+                      onOk: () => {
+                        window.location.href = "/";
+                      },
+                    });
+                    localStorage.removeItem("token");
                   }}
                 >
                   Log Out

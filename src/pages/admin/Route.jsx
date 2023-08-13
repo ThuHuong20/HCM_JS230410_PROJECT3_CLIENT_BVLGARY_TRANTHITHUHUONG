@@ -27,7 +27,10 @@ async function authenAdmin() {
 }
 
 export default (
-    <Route path="admin" element={await authenAdmin()}>
-        <Route path="product" element={LazyLoad(() => import("./Product"))()}></Route>
-    </Route> 
+  <Route path="admin" element={await authenAdmin()}>
+    <Route
+      path="product-manage"
+      element={LazyLoad(() => import("./Product"))()}
+    ></Route>
+  </Route>
 );

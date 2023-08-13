@@ -14,7 +14,8 @@
   }
 }
 
-.ant-message {
-  z-index: 10000000 !important;
+.ant-message,
+.ant-modal-root {
+  z-index: 100000000 !important;
   position: fixed !important;
 }

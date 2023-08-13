@@ -4,6 +4,7 @@ import api from "@api";
 import "./auth.scss";
 import { convertToUSD } from "@mieuteacher/meomeojs";
 import { message } from "antd";
+import ProductUpdatePop from "./product-components/Update";
 message.config({
   top: 150,
   duration: 1,
@@ -41,10 +42,11 @@ export default function ProductManage() {
       });
   }, []);
 
+  const [updateData, setUpdateData] = useState(null);
   return (
     <div>
       <div>
-        <h1 style={{ marginLeft: "600px" }}>Admin</h1>
+        <h1 style={{ marginLeft: "600px" }}>Product Manage</h1>
       </div>
       <div className="form_container">
         <h1>Add Product</h1>
@@ -144,7 +146,7 @@ export default function ProductManage() {
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Price</th>
-                 <th scope="col">UpDate</th>
+                <th scope="col">UpDate</th>
                 {/* <th scope="col">Stock</th> */}
               </tr>
             </thead>
@@ -168,20 +170,28 @@ export default function ProductManage() {
                   <td>{product.des}</td>
                   <td>{convertToUSD(product.price)}</td>
                   <td>
-                   
                     <span style={{ margin: "0px 30px" }}>
                       {product.quantity}
                     </span>
-                   
                   </td>
-                  <td><button
-                       type="button" class="btn btn-info">UpDate</button></td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        setUpdateData(product);
+                      }}
+                      type="button"
+                      class="btn btn-info"
+                    >
+                      UpDate
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
+      {updateData ? <ProductUpdatePop productActions ={productActions} dispatch ={dispatch} updateData={updateData} setUpdateData={setUpdateData} categories={categories} /> : <></>}
     </div>
   );
 }

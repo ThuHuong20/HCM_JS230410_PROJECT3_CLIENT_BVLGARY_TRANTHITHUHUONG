@@ -25,4 +25,15 @@ export default {
   findMany: async function () {
     return await axios.get(`${process.env.REACT_APP_SERVER_HOST_API}/products`);
   },
+  update: async function (productId, formData) {
+    return await axios.patch(
+      `${process.env.REACT_APP_SERVER_HOST_API}/products/${productId}`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      },
+    );
+  },
 };
