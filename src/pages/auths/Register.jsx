@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import api from "@api";
 import "./auth.scss";
 import { message, Modal } from "antd";
+import Loading from "../../lazy_loadings/components/Loading";
 message.config({
   top: 120,
   duration: 1,
@@ -10,6 +11,7 @@ message.config({
   prefixCls: "my-message",
 });
 export default function Register() {
+  const [onLoad, setOnLoad] = useState(false);
   return (
     <section
       className="vh-100 bg-image"
@@ -36,18 +38,23 @@ export default function Register() {
                         password: e.target.password.value,
                       };
                       try {
+                        setOnLoad(true);
                         let result = await api.users.register(newUser);
                         if (result.status != 200) {
+                          setOnLoad(false);
                           Modal.error({
                             content: "Email already exists",
                           });
                           // alert(result.data.message);
                         } else {
-                          Modal.success({
-                            content: "Register sucsses",
+                          setOnLoad(false);
+                          Modal.confirm({
+                            content: result.data.message,
+                            onOk: () => {
+                              window.location.href = "/login";
+                            },
                           });
-                          // alert(result.data.message);
-                          window.location.href = "/login";
+                          //alert(result.data.message);
                         }
                       } catch (err) {
                         alert("call api that bai");
@@ -136,6 +143,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+      {onLoad ? <Loading /> : <></>}
     </section>
   );
 }

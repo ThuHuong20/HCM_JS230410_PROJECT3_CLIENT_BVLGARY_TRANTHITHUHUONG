@@ -69,7 +69,7 @@ function App() {
         productActions: actions.productActions,
         receiptStore: store.receiptStore,
         localCartState,
-        setLocalCartState
+        setLocalCartState,
       }}
     >
       <Routes>

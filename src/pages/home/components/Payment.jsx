@@ -4,7 +4,7 @@ import { RootContext } from "@/App";
 import { convertToUSD } from "@mieuteacher/meomeojs";
 import axios from "axios";
 import Qr from "./qrs/Qr";
-import { message } from "antd";
+import { Modal, message } from "antd";
 export default function Payment() {
   const { cartStore, userStore } = useContext(RootContext);
   const [cartItems, setCartItems] = useState(null);
@@ -47,10 +47,15 @@ export default function Payment() {
         receiptDetails,
       })
       .then((res) => {
-        message.success("Thank you for your purchase");
-        window.location.href = "/receipts";
+        Modal.success({
+          content: "Thank you for your purchase",
+          onOk: () => {
+            window.location.href = "/receipts";
+          }
+        })
+
         // chuyển trang receipt
-        console.log("Đã save receipt", res.data);
+        //console.log("Đã save receipt", res.data);
       })
 
       .catch((err) => {
@@ -108,7 +113,7 @@ export default function Payment() {
                 .then((checkRes) => {
                   if (checkRes.status == 200) {
                     // chuyển qua trang hóa đơn
-                    window.location.href = "/receipts";
+                    //window.location.href = "/receipts";
                     clearInterval(tradeInterval);
                     // thu hồi QR
                     setQrShow(false);
@@ -134,34 +139,16 @@ export default function Payment() {
     }
   }
 
-  // const [name, setName] = useState("");
-  // const [phone, setPhone] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [formErrors, setFormErrors] = useState({
-  //     name: false,
-  //     phone: false,
-  //     address: false,
-  // });
-  // function validateForm() {
-  //     const errors = {
-  //         name: name === "",
-  //         phone: phone === "",
-  //         address: address === "",
-  //     };
-  //     setFormErrors(errors);
-  //     return !Object.values(errors).some((error) => error);
-  // }
-
-  // function handleSubmit(eventForm) {
-  //     eventForm.preventDefault();
-
-  //     if (validateForm()) {
-  //         checkOut(eventForm);
-  //     } else {
-  //         // Handle form errors or show error message
-  //         console.log("Please fill in all required fields");
-  //     }
-  // }
+  const [userName, setUserName] = useState("");
+  const [userPhone, setUserPhone] = useState("");
+  const [userAddress, setUserAddress] = useState("");
+  function validate() {
+    if (userName == "" || userPhone == "" || userAddress == "") {
+      message.error("Please enter all the information!");
+      return false;
+    }
+    return true;
+  }
   return (
     <div>
       <div>
@@ -178,64 +165,45 @@ export default function Payment() {
               <input
                 id="name"
                 className="form-group-input"
-                // className={`form-group-input ${
-                //     formErrors.name ? "error" : ""
-                // }`}
                 type="text"
                 placeholder="Name"
                 name="userName"
-                // value={name}
-                // onChange={(e) => setName(e.target.value)}
+                value={userName}
+                onChange={(e) => {
+                  setUserName(e.target.value);
+                }}
               />
-              {/* {formErrors.name && (
-                                <p className="error-message">
-                                    Please enter your name
-                                </p>
-                            )} */}
               <br />
               <input
                 id="phone"
                 className="form-group-input"
-                // className={`form-group-input ${
-                //     formErrors.phone ? "error" : ""
-                // }`}
                 type="text"
                 placeholder="Phone Number"
                 name="userPhoneNumber"
-                // value={phone}
-                // onChange={(e) => setPhone(e.target.value)}
+                value={userPhone}
+                onChange={(e) => {
+                  setUserPhone(e.target.value);
+                }}
               />
-              {/* {formErrors.phone && (
-                                <p className="error-message">
-                                    Please enter your phone number
-                                </p>
-                            )} */}
               <br />
               <input
                 id="address"
                 className="form-group-input"
-                // className={`form-group-input ${
-                //     formErrors.address ? "error" : ""
-                // }`}
                 type="text"
                 placeholder="Address"
                 name="userAddress"
-                // value={address}
-                // onChange={(e) => setAddress(e.target.value)}
+                value={userAddress}
+                onChange={(e) => {
+                  setUserAddress(e.target.value);
+                }}
               />
-              {/* {formErrors.address && (
-                                <p className="error-message">
-                                    Please enter your address
-                                </p>
-                            )} */}
               <br />
             </div>
-            {/* Xử lý tại đây */}
             <form
               onSubmit={(eventForm) => {
-                // {
-                //     handleSubmit;
-                // }
+                if (!validate()) {
+                  return;
+                }
                 checkOut(eventForm);
               }}
             >

@@ -53,7 +53,7 @@ export default function Info() {
             />
             <br />
             {/* <p>{userStore?.username}</p> */}
-            <b style={{ marginLeft: "15px" }}>{userStore.data.user_name}</b>
+            <b style={{ marginLeft: "40px" }}>{userStore.data.user_name}</b>
           </div>
           <div style={{ width: "400px" }}>
             <input

@@ -74,26 +74,26 @@ export default function Login() {
                                 );
                                 if (localStorage.getItem("carts")) {
                                   let carts = JSON.parse(
-                                        localStorage.getItem("carts"),
-                                      );
-                                      await carts.map(async (item) => {
-                                        await api.purchase
-                                          .addToCart(result.data.userId, item)
-                                          .then((res) => {
-                                            console.log("res", res);
-                                          })
-                                          .catch((err) => {
-                                            alert("looix");
-                                          });
-                                        return item;
+                                    localStorage.getItem("carts"),
+                                  );
+                                  await carts.map(async (item) => {
+                                    await api.purchase
+                                      .addToCart(result.data.userId, item)
+                                      .then((res) => {
+                                        console.log("res", res);
+                                      })
+                                      .catch((err) => {
+                                        alert("looix");
                                       });
-                                      localStorage.removeItem("carts")
-                                      Modal.success({
-                                        content: `${result.data.message}`,
-                                        onOk: () => {
-                                          window.location.href = "/";
-                                        },
-                                      });
+                                    return item;
+                                  });
+                                  localStorage.removeItem("carts");
+                                  Modal.success({
+                                    content: `${result.data.message}`,
+                                    onOk: () => {
+                                      window.location.href = "/";
+                                    },
+                                  });
                                 } else {
                                   Modal.success({
                                     content: `${result.data.message}`,

@@ -1,7 +1,7 @@
 .shipping {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 20px;
+  margin-top: 80px;
   height: calc(100vh - 100px);
 
   .form-group {
@@ -56,6 +56,7 @@
 
   .shippingDetails {
     margin-top: 10px;
+
     input {
       margin: 15px 10px;
     }
@@ -150,6 +151,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(grey, 1);
 }
+
 .form-group-input.error {
   border: 1px solid red;
   /* Thay đổi màu viền thành màu đỏ */

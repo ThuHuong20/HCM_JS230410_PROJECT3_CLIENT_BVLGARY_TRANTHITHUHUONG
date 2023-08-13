@@ -7,8 +7,15 @@ import api from "@api";
 export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
-  const { userStore, productStore, dispatch, productActions, cartActions, setLocalCartState, localCartState } =
-    useContext(RootContext);
+  const {
+    userStore,
+    productStore,
+    dispatch,
+    productActions,
+    cartActions,
+    setLocalCartState,
+    localCartState,
+  } = useContext(RootContext);
 
   useEffect(() => {
     dispatch(productActions.findProductById(id));
@@ -21,7 +28,7 @@ export default function ProductDetail() {
     let data = {
       product_id: productStore.data.id,
       quantity,
-      note: "huong khong dep",
+      note: "Fast delivery",
     };
 
     if (localStorage.getItem("token")) {
@@ -65,7 +72,7 @@ export default function ProductDetail() {
         cartTemp.push(data);
         localStorage.setItem("carts", JSON.stringify(cartTemp)); // save
       }
-      setLocalCartState(!localCartState)
+      setLocalCartState(!localCartState);
     }
   }
 

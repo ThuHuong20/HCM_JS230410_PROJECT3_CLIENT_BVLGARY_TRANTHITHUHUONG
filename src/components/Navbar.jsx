@@ -12,7 +12,7 @@ message.config({
   prefixCls: "my-message",
 });
 export default function Navbar() {
-  const { cartStore, localCartState } = useContext(RootContext);
+  const { cartStore, localCartState, userStore } = useContext(RootContext);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     api.categories
@@ -30,44 +30,48 @@ export default function Navbar() {
   }, []);
 
   const [cartLocalTotal, setCartLocalTotal] = useState(null);
-  
-  async function totalCartAsync() {
-      if(!localStorage.getItem("token")) {
-      if(localStorage.getItem("carts")) {
-          let carts = JSON.parse(localStorage.getItem('carts'));
-          for (let i in carts) {
-            carts[i].product = await api.products.findProductById(carts[i].product_id).then(res => res.data.data);
-          }
-          let total = carts.reduce((result, nextItem) => {
-            return result += nextItem.quantity;
-          }, 0) 
 
-          setCartLocalTotal(total);
+  async function totalCartAsync() {
+    if (!localStorage.getItem("token")) {
+      if (localStorage.getItem("carts")) {
+        let carts = JSON.parse(localStorage.getItem("carts"));
+        for (let i in carts) {
+          carts[i].product = await api.products
+            .findProductById(carts[i].product_id)
+            .then((res) => res.data.data);
         }
+        let total = carts.reduce((result, nextItem) => {
+          return (result += nextItem.quantity);
+        }, 0);
+
+        setCartLocalTotal(total);
       }
+    }
   }
 
   useEffect(() => {
     totalCartAsync();
-  }, [localCartState])
- 
+  }, [localCartState]);
+
+  
+  useEffect(() => {
+    console.log("userStore", userStore)
+  }, [userStore.data]);
 
   function totalCart() {
     return cartStore.data?.cart_details?.reduce((result, nextItem) => {
-              return (result += nextItem.quantity);
-            }, 0)
+      return (result += nextItem.quantity);
+    }, 0);
   }
   return (
     <nav>
       <div className="nav_content">
         <div className="left_content">
-          {/* Logo */}
-          {/* <img
-                        src={`${process.env.REACT_APP_SERVER_HOST}bvlgari.png`}
-                        className="logo"
-                    /> */}
           <h1
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              fontFamily: "'Times New Roman', Times, serif",
+            }}
             onClick={() => {
               window.location.href = "/";
             }}
@@ -161,17 +165,28 @@ export default function Navbar() {
                 <a className="dropdown-item" href="/profile">
                   Profile
                 </a>
+
+                {userStore.data?.role == "ADMIN" ? (
+                  <a className="dropdown-item" href="/admin">
+                    Admin
+                  </a>
+                ) : (
+                  <></>
+                )}
+
                 <a
-                  href="/"
+                  //href="/"
                   style={{ cursor: "pointer" }}
                   className="dropdown-item"
                   onClick={() => {
-                    alert("Are you sure want to logout?");
-                    localStorage.removeItem("token");
-                    // Modal.success({
-                    //     content:
-                    //         "Are you sure want to logout?",
-                    // });
+                    //alert("Are you sure want to logout?");
+                    Modal.confirm({
+                      content: "Are you sure want to logout?",
+                       onOk: () => {
+                              window.location.href = "/";
+                            },
+                    }); 
+                     localStorage.removeItem("token");
                   }}
                 >
                   Log Out
@@ -212,7 +227,7 @@ export default function Navbar() {
             style={{ cursor: "pointer" }}
           ></i>
           <p style={{ color: "red" }}>
-            {cartLocalTotal != null ? cartLocalTotal :  totalCart()}
+            {cartLocalTotal != null ? cartLocalTotal : totalCart()}
           </p>
         </div>
       </div>

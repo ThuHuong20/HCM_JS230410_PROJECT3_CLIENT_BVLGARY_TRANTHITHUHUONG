@@ -12,7 +12,7 @@ message.config({
   prefixCls: "my-message",
 });
 import { RootContext } from "@/App";
-export default function Admin() {
+export default function ProductManage() {
   const { productStore, productActions, dispatch } = useContext(RootContext);
 
   const urlPreviewRef = useRef();

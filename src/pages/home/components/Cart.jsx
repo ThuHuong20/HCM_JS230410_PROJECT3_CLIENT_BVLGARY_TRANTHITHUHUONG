@@ -12,8 +12,14 @@ message.config({
   prefixCls: "my-message",
 });
 export default function Cart() {
-  const { cartStore, userStore, cartActions, dispatch, localCartState, setLocalCartState } =
-    useContext(RootContext);
+  const {
+    cartStore,
+    userStore,
+    cartActions,
+    dispatch,
+    localCartState,
+    setLocalCartState,
+  } = useContext(RootContext);
   const [cartItems, setCartItems] = useState(null);
 
   useEffect(() => {
@@ -23,14 +29,14 @@ export default function Cart() {
   }, [cartStore.data]);
 
   function deleteItem(id, type = undefined) {
-    if(!localStorage.getItem("token")) {
-      if(localStorage.getItem("carts")) {
+    if (!localStorage.getItem("token")) {
+      if (localStorage.getItem("carts")) {
         let carts = JSON.parse(localStorage.getItem("carts"));
-            carts = carts.filter(item => item.product_id != id);
-            localStorage.setItem("carts", JSON.stringify(carts)); // save
-             setLocalCartState(!localCartState) // reload ui
+        carts = carts.filter((item) => item.product_id != id);
+        localStorage.setItem("carts", JSON.stringify(carts)); // save
+        setLocalCartState(!localCartState); // reload ui
       }
-      return  
+      return;
     }
     api.purchase
       .updateCart(userStore.data?.id, {
@@ -63,38 +69,38 @@ export default function Cart() {
     let quantityEl = e.target.parentNode.querySelector(".quantity");
     let quantity = Number(quantityEl.innerText);
 
-    if(!localStorage.getItem("token")) {
-      if(localStorage.getItem("carts")) {
+    if (!localStorage.getItem("token")) {
+      if (localStorage.getItem("carts")) {
         let carts = JSON.parse(localStorage.getItem("carts"));
         if (e.target.innerText == "-") {
           for (let i in carts) {
             if (carts[i].product_id == item.product_id) {
-              if(quantity == 1) {
+              if (quantity == 1) {
                 carts.splice(i, 1);
-              }else {
+              } else {
                 carts[i].quantity -= 1;
               }
             }
-            localStorage.setItem("carts",JSON.stringify(carts)); // save
+            localStorage.setItem("carts", JSON.stringify(carts)); // save
           }
-        }else {
-          carts = carts.map(itemMap => {
-            if(itemMap.product_id == item.product_id) {
+        } else {
+          carts = carts.map((itemMap) => {
+            if (itemMap.product_id == item.product_id) {
               itemMap.quantity += 1;
             }
-            return itemMap
-          })
-          localStorage.setItem("carts",JSON.stringify(carts)); // save
+            return itemMap;
+          });
+          localStorage.setItem("carts", JSON.stringify(carts)); // save
         }
-        setLocalCartState(!localCartState) // reload ui
+        setLocalCartState(!localCartState); // reload ui
       }
-      return
+      return;
     }
     if (e.target.innerText == "-") {
       if (quantity == 1) {
         if (window.confirm("Xóa ok?!")) {
           // xóa
-          deleteItem(item.id,0);
+          deleteItem(item.id, 0);
         }
       }
       // cập nhật -
@@ -152,21 +158,23 @@ export default function Cart() {
   }
 
   async function generateDataCart() {
-      let carts = JSON.parse(localStorage.getItem("carts"));
-      for (let i in carts) {
-         carts[i].product = await api.products.findProductById(carts[i].product_id).then(res => res.data.data);
-      }
-      setCartItems(carts);
-      console.log("carts", carts)
+    let carts = JSON.parse(localStorage.getItem("carts"));
+    for (let i in carts) {
+      carts[i].product = await api.products
+        .findProductById(carts[i].product_id)
+        .then((res) => res.data.data);
+    }
+    setCartItems(carts);
+    console.log("carts", carts);
   }
 
   useEffect(() => {
-    if(!localStorage.getItem("token")) {
-      if(localStorage.getItem("carts")) {
+    if (!localStorage.getItem("token")) {
+      if (localStorage.getItem("carts")) {
         generateDataCart();
       }
     }
-  }, [localCartState])
+  }, [localCartState]);
   return (
     <div>
       <div className="cart_container">
@@ -210,12 +218,17 @@ export default function Cart() {
                     <div>
                       <i
                         onClick={() => {
-                            Modal.warning({
-                              content: "Do you want to delete this product?",
-                              onOk: () => {
-                                deleteItem(item.id == undefined ? item.product_id : item.id ,0);
-                              }
-                            })
+                          Modal.warning({
+                            content: "Do you want to delete this product?",
+                            onOk: () => {
+                              deleteItem(
+                                item.id == undefined
+                                  ? item.product_id
+                                  : item.id,
+                                0,
+                              );
+                            },
+                          });
                         }}
                         style={{
                           color: " #de7474",
@@ -261,7 +274,14 @@ export default function Cart() {
           </p>
           <button
             onClick={() => {
-              window.location.href = "/payment";
+              if (userStore.data == null) {
+                Modal.warning({
+                  content: "Ban can phai dang nhap!",
+                  onOk: () => {},
+                });
+              } else {
+                window.location.href = "/payment";
+              }
             }}
           >
             Check Out
