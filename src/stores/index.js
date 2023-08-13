@@ -12,7 +12,7 @@ const store = configureStore({
     categoryStore: categoryReducer,
     productStore: productReducer,
     cartStore: cartReducer,
-    receiptStore: receiptReducer
+    receiptStore: receiptReducer,
   },
 });
 

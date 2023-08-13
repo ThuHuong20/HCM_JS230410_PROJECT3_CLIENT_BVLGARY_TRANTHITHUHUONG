@@ -7,11 +7,9 @@ const find = createAsyncThunk("/find", async () => {
 });
 
 const authenToken = createAsyncThunk("/authen-token", async () => {
-  let result = await api.users.authenToken(
-    {
-      token: localStorage.getItem('token')
-    }
-  );
+  let result = await api.users.authenToken({
+    token: localStorage.getItem("token"),
+  });
   return result.data;
 });
 
@@ -30,9 +28,10 @@ const userSlice = createSlice({
     },
     logOut: (state, action) => {
       return {
-        ...state, userInfor: null
-      }
-    }
+        ...state,
+        userInfor: null,
+      };
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(find.fulfilled, (state, action) => {
@@ -48,7 +47,6 @@ const userSlice = createSlice({
     });
     builder.addCase(authenToken.rejected, (state, action) => {
       localStorage.removeItem("token");
-      
     });
     // builder.addMatcher(
     //   (action) => {
@@ -82,7 +80,7 @@ const userSlice = createSlice({
 export const userActions = {
   ...userSlice.actions,
   find,
-  authenToken
+  authenToken,
 };
 
 export const userReducer = userSlice.reducer;

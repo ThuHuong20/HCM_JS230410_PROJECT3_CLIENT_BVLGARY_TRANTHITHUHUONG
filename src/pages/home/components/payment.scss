@@ -1,159 +1,165 @@
 .shipping {
-    display: flex;
-    justify-content:space-evenly;
-    margin-top: 20px;
-    height: calc(100vh - 100px);
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  height: calc(100vh - 100px);
 
-    .form-group {
+  .form-group {
+    border: 1px solid black;
+    padding: 20px;
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    -webkit-box-shadow: 3px 5px 11px 4px rgba(3, 35, 54, 0.74);
+    box-shadow: 3px 5px 11px 4px rgba(3, 35, 54, 0.74);
+
+    h2 {
+      font-weight: bold;
+    }
+
+    .form-groupInput {
+      .form-group-input {
         border: 1px solid black;
-        padding: 20px;
-        width: 400px;
-        height: 500px;
-        border-radius: 10px;
-        -webkit-box-shadow: 3px 5px 11px 4px rgba(3, 35, 54, 0.74);
-            box-shadow: 3px 5px 11px 4px rgba(3, 35, 54, 0.74);
-
-        h2 {
-            font-weight: bold;
-            
-        }
-
-        .form-groupInput {
-            .form-group-input {
-                border: 1px solid black;
-                width: 100%;
-                margin: 10px 0px;
-                height: 40px;
-                border-radius: 5px;
-                padding-left: 10px;
-            }
-        }
-
-        .form-group-checkout {
-            margin-top: 20px;
-            width: 100%;
-            height: 40px;
-            cursor: pointer;
-            color: rgb(236, 229, 229);
-            font-size: 20px;
-            line-height: 16px;
-            padding: 9px;
-            border-radius: 10px;
-            font-family: Georgia, serif;
-                font-weight: normal;
-                text-decoration: none;
-                font-style: normal;
-                font-variant: normal;
-                text-transform: none;
-                background-image: linear-gradient(to right, rgb(20, 37, 30) 0%, rgb(54, 58, 56) 50%, rgb(36, 58, 52) 100%);
-                display: inline-block;
-        }
-
-
+        width: 100%;
+        margin: 10px 0px;
+        height: 40px;
+        border-radius: 5px;
+        padding-left: 10px;
+      }
     }
 
-    .shippingDetails {
-        margin-top: 10px;
-        input{
-            margin: 15px 10px;
-        }
+    .form-group-checkout {
+      margin-top: 20px;
+      width: 100%;
+      height: 40px;
+      cursor: pointer;
+      color: rgb(236, 229, 229);
+      font-size: 20px;
+      line-height: 16px;
+      padding: 9px;
+      border-radius: 10px;
+      font-family: Georgia, serif;
+      font-weight: normal;
+      text-decoration: none;
+      font-style: normal;
+      font-variant: normal;
+      text-transform: none;
+      background-image: linear-gradient(
+        to right,
+        rgb(20, 37, 30) 0%,
+        rgb(54, 58, 56) 50%,
+        rgb(36, 58, 52) 100%
+      );
+      display: inline-block;
+    }
+  }
 
-        img {
-            width: 150px;
-            margin-left: 8px;
-        }
-
-        .shippingDetails_button {
-
-            img {
-                height: 30px;
-            }
-        }
-
-
+  .shippingDetails {
+    margin-top: 10px;
+    input {
+      margin: 15px 10px;
     }
 
-    .informationLine {
-        border: 1px solid black;
-        padding: 20px;
-        width: 430px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        height: 500px;
-        border-radius: 10px;
-        -webkit-box-shadow: 3px 5px 11px 4px rgba(3, 35, 54, 0.74);
-            box-shadow: 3px 5px 11px 4px rgba(3, 35, 54, 0.74);
-
-        .informationLine_product {
-            display: flex;
-            height: 100%;
-
-            img {
-                width: 100px;
-                height: 100px;
-            }
-
-            .informationLine_text {
-                margin-left: 30px;
-
-                h4 {
-                    color: rgb(24, 30, 24);
-                    font-weight: bold;
-                }
-
-                p {
-                    color: rgb(235, 81, 81);
-                    font-weight: bold;
-                }
-            }
-        }
-
-        .informationLine_total {
-            margin-top: 20px;
-            border-top: 2px solid green;
-            display: flex;
-            height: 100%;
-
-            h3 {
-                margin-top: 20px;
-                font-weight: bold;
-              
-            }
-
-            span {
-                margin-top: 20px;
-                margin-left: 180px;
-                color: red;
-                font-weight: bold;
-                font-size: 20px;
-            }
-        }
-
-
+    img {
+      width: 150px;
+      margin-left: 8px;
     }
 
+    .shippingDetails_button {
+      img {
+        height: 30px;
+      }
+    }
+  }
+
+  .informationLine {
+    border: 1px solid black;
+    padding: 20px;
+    width: 430px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 500px;
+    border-radius: 10px;
+    -webkit-box-shadow: 3px 5px 11px 4px rgba(3, 35, 54, 0.74);
+    box-shadow: 3px 5px 11px 4px rgba(3, 35, 54, 0.74);
+
+    .informationLine_product {
+      display: flex;
+      height: 100%;
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .informationLine_text {
+        margin-left: 30px;
+
+        h4 {
+          color: rgb(24, 30, 24);
+          font-weight: bold;
+        }
+
+        p {
+          color: rgb(235, 81, 81);
+          font-weight: bold;
+        }
+      }
+    }
+
+    .informationLine_total {
+      margin-top: 20px;
+      border-top: 2px solid green;
+      display: flex;
+      height: 100%;
+
+      h3 {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      span {
+        margin-top: 20px;
+        margin-left: 180px;
+        color: red;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+  }
 }
 
-
-
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+  width: 5px;
+  height: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px white;
-    border-radius: 10px;
+  box-shadow: inset 0 0 5px white;
+  border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgba(grey, 0.5);
-    border-radius: 10px;
+  background: rgba(grey, 0.5);
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(grey, 1);
+  background: rgba(grey, 1);
+}
+.form-group-input.error {
+  border: 1px solid red;
+  /* Thay đổi màu viền thành màu đỏ */
+}
+
+.error-message {
+  color: red;
+  /* Thay đổi màu chữ thành màu đỏ */
+  font-size: 12px;
+  /* Thay đổi kích thước chữ để làm nhỏ hơn */
+  margin-top: 5px;
+  /* Thêm khoảng cách giữa trường và thông báo lỗi */
 }

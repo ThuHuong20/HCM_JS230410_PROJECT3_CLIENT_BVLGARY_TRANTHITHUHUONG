@@ -7,8 +7,8 @@ import store from "./stores";
 
 import { BrowserRouter } from "react-router-dom";
 
-import { I18nextProvider } from 'react-i18next';
-import i18nConfig from './languages/i18n.config';
+import { I18nextProvider } from "react-i18next";
+import i18nConfig from "./languages/i18n.config";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,442 +1,442 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  box-sizing: border-box;
 }
 
 @import "@scss";
 
 .root_page {
+  width: 100%;
+  font-size: $fs_medium;
+  .before_nav {
+    background-color: $cl_body_main;
+    display: flex;
+    justify-content: center;
+    height: $beforeNavH;
+    font-size: 1em;
+    position: sticky;
+    top: 0;
+    z-index: $zi_max;
+    .before_nav_content {
+      width: $maxW;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1em;
+      .brand_name {
+        text-transform: uppercase;
+        font-size: 1.3em;
+        // font-family: $f_brand;
+      }
+      .feature {
+        display: flex;
+        width: 30%;
+        justify-content: space-between;
+        font-size: 1em;
+        .feature_item {
+          font-size: 0.65em;
+          border-right: 2px solid black;
+          width: 100%;
+          max-width: 120px;
+          //margin-right: 10px;
+          text-align: center;
+          cursor: pointer;
+          &:hover {
+            transform: scale(1.1);
+          }
+          &:last-child {
+            border: unset;
+            text-align: right;
+            max-width: 100px;
+          }
+        }
+      }
+    }
+  }
+  nav {
     width: 100%;
-    font-size: $fs_medium;
-    .before_nav {
-        background-color: $cl_body_main;
+    height: $navH;
+    font-size: 1em;
+    background-color: $cl_nav_main;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: $beforeNavH;
+    z-index: $zi_max;
+    .nav_content {
+      width: 100%;
+      max-width: $maxW;
+      height: 100%;
+      font-size: 1em;
+      display: flex;
+      justify-content: space-between;
+      .left_content {
         display: flex;
-        justify-content: center;
-        height: $beforeNavH;
+        align-items: center;
+        justify-content: space-between;
         font-size: 1em;
-        position: sticky;
-        top: 0;
-        z-index: $zi_max;
-        .before_nav_content {
-            width: $maxW;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1em;
-            .brand_name {
-                text-transform: uppercase;
-                font-size: 1.3em;
-                // font-family: $f_brand;
-            }
-            .feature {
-                display: flex;
-                width: 30%;
-                justify-content: space-between;
-                font-size: 1em;
-                .feature_item {
-                    font-size: 0.65em;
-                    border-right: 2px solid black;
-                    width: 100%;
-                    max-width: 120px;
-                    //margin-right: 10px;
-                    text-align: center;
-                    cursor: pointer;
-                    &:hover {
-                        transform: scale(1.1);
-                    }
-                    &:last-child {
-                        border: unset;
-                        text-align: right;
-                        max-width: 100px;
-                    }
-                }
-            }
+        height: 100%;
+        //width: 10%;
+        .logo {
+          width: 150px;
+          height: 100%;
         }
-    }
-    nav {
-        width: 100%;
-        height: $navH;
-        font-size: 1em;
-        background-color: $cl_nav_main;
+      }
+      .middle_content {
+        height: 100%;
         display: flex;
-        justify-content: center;
-        position: sticky;
-        top: $beforeNavH;
-        z-index: $zi_max;
-        .nav_content {
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.3em;
+        .item {
+          color: black;
+          font-size: 0.8em;
+          font-weight: 900;
+          cursor: pointer;
+          margin-right: 20px;
+          &:last-child {
+            margin: unset;
+          }
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+      .right_content {
+        width: 23%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+  .body_container {
+    width: 100%;
+    //  height: 100vh;
+    background-color: $cl_nav_main;
+    display: flex;
+    justify-content: center;
+    .body_container_center {
+      width: $maxW;
+      height: 100%;
+      /* banner */
+      .video {
+        margin-top: 30px;
+      }
+      .carousel-inner {
+        width: 100%;
+        height: 600px;
+
+        .carousel-item {
+          width: 100%;
+          height: 100%;
+
+          .img-fluid {
             width: 100%;
-            max-width: $maxW;
             height: 100%;
-            font-size: 1em;
+            object-fit: cover;
+            position: absolute;
+          }
+        }
+
+        .video-caption {
+          position: absolute;
+          bottom: 200px;
+          /* Điều chỉnh vị trí dưới video theo ý muốn */
+          right: 20px;
+          /* Điều chỉnh vị trí trái video theo ý muốn */
+          color: #fff;
+          /* Màu chữ */
+          font-size: 18px;
+          /* Cỡ chữ */
+          font-weight: bold;
+          /* Trọng lượng chữ */
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+          /* Hiệu ứng bóng chữ */
+          .video_caption_text {
+            width: 700px;
+            height: 150px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 15px;
+
+            .video_caption_text_h1 {
+              h1 {
+                margin-top: 10px;
+              }
+            }
+
+            .video_caption_text_a {
+              display: flex;
+              justify-content: space-around;
+
+              a {
+                text-decoration: none;
+                color: black;
+                border: 0.3rem solid white;
+                background-color: #fff;
+                width: 300px;
+                height: 40px;
+              }
+            }
+          }
+        }
+      }
+      /* content */
+      .container {
+        .container_text {
+          text-align: center;
+          align-items: center;
+          margin-top: 20px;
+        }
+
+        .container_img {
+          display: flex;
+          justify-content: space-around;
+          img {
+            margin: 10px;
+            transition: transform 0.1s;
+          }
+          // img:hover  {
+          //     transform: scale(0.9);
+          //     /* Phóng to hình ảnh lên 120% */
+          // }
+        }
+        .container_product {
+          margin-top: 20px;
+          .container_product_h1 {
+            text-align: center;
+            align-items: center;
+          }
+
+          .container_product_item {
             display: flex;
-            justify-content: space-between;
-            .left_content {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                font-size: 1em;
-                height: 100%;
-                //width: 10%;
-                .logo {
-                    width: 150px;
-                    height: 100%;
+            justify-content: space-around;
+            .container_product_item_a {
+              position: relative;
+              margin: 0px 15px;
+              img {
+                display: block;
+                width: 300px;
+                height: 300px;
+              }
+              .overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 300px;
+                width: 300px;
+                opacity: 0;
+                transition: 0.5s ease;
+                background-image: url("https://www.bulgari.com/on/demandware.static/-/Library-Sites-bulgariSharedLibrary/default/dw95edc4e8/the_maison/bulgari_history/SLIDER_2/3_410x410.jpg");
+                .text {
+                  color: white;
+                  font-size: 20px;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  -webkit-transform: translate(-50%, -50%);
+                  -ms-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+                  text-align: center;
                 }
+              }
+              h5 {
+                margin-top: 10px;
+                margin-left: 40%;
+                color: black;
+                text-decoration: none;
+              }
             }
-            .middle_content {
-                height: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                font-size: 1.3em;
-                .item {
-                    color: black;
-                    font-size: 0.8em;
-                    font-weight: 900;
-                    cursor: pointer;
-                    margin-right: 20px;
-                    &:last-child {
-                        margin: unset;
-                    }
-                    &:hover {
-                        transform: scale(1.1);
-                    }
+            .container_product_item_a:hover .overlay {
+              opacity: 1;
+            }
+            .container_product_item_b {
+              position: relative;
+              margin: 0px 15px;
+
+              img {
+                display: block;
+                width: 300px;
+                height: 300px;
+              }
+
+              .overlayb {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 300px;
+                width: 300px;
+                opacity: 0;
+                transition: 0.5s ease;
+                background-image: url("https://www.bulgari.com/on/demandware.static/-/Library-Sites-bulgariSharedLibrary/default/dw3dfd5668/the_maison/bulgari_history/SLIDER_3/1_410x410.jpg");
+
+                .textb {
+                  color: white;
+                  font-size: 20px;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  -webkit-transform: translate(-50%, -50%);
+                  -ms-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+                  text-align: center;
                 }
+              }
+
+              h5 {
+                margin-top: 10px;
+                margin-left: 40%;
+              }
             }
-            .right_content {
-                width: 23%;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+            .container_product_item_b:hover .overlayb {
+              opacity: 1;
             }
+
+            .container_product_item_c {
+              position: relative;
+              margin: 0px 15px;
+
+              img {
+                display: block;
+                width: 300px;
+                height: 300px;
+              }
+
+              .overlayc {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 300px;
+                width: 300px;
+                opacity: 0;
+                transition: 0.5s ease;
+                background-image: url("https://media2.bulgari.com/image/upload/f_auto,q_auto/v1673255576/collection/lvmh-watch-week/lvmh-ww-23/lvmh-ww-heritage-3_km139v.jpg");
+
+                .textc {
+                  color: white;
+                  font-size: 20px;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  -webkit-transform: translate(-50%, -50%);
+                  -ms-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+                  text-align: center;
+                }
+              }
+
+              h5 {
+                margin-top: 10px;
+                margin-left: 40%;
+              }
+            }
+            .container_product_item_c:hover .overlayc {
+              opacity: 1;
+            }
+            .container_product_item_d {
+              position: relative;
+              margin: 0px 15px;
+
+              img {
+                display: block;
+                width: 300px;
+                height: 300px;
+              }
+
+              .overlayd {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 300px;
+                width: 300px;
+                opacity: 0;
+                transition: 0.5s ease;
+                background-image: url("https://media2.bulgari.com/image/upload/f_auto,q_auto/v1680086022/collection/ABU/Fall-Winter-23/470x540-4_lhfzx4.jpg");
+
+                .textd {
+                  color: white;
+                  font-size: 20px;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  -webkit-transform: translate(-50%, -50%);
+                  -ms-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+                  text-align: center;
+                }
+              }
+
+              h5 {
+                margin-top: 10px;
+                margin-left: 40%;
+              }
+            }
+            .container_product_item_d:hover .overlayd {
+              opacity: 1;
+            }
+          }
         }
-    }
-    .body_container {
-        width: 100%;
-        //  height: 100vh;
-        background-color: $cl_nav_main;
-        display: flex;
-        justify-content: center;
-        .body_container_center {
-            width: $maxW;
-            height: 100%;
-            /* banner */
-            .video {
-                margin-top: 30px;
+        .container_product_page {
+          margin-top: 20px;
+          .container_product_page_h1 {
+            text-align: center;
+            align-items: center;
+            .items {
+              width: 90%;
+              margin: 0px auto;
+              margin-top: 100px;
             }
-            .carousel-inner {
-                width: 100%;
-                height: 600px;
-
-                .carousel-item {
-                    width: 100%;
-                    height: 100%;
-
-                    .img-fluid {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        position: absolute;
-                    }
-                }
-
-                .video-caption {
-                    position: absolute;
-                    bottom: 200px;
-                    /* Điều chỉnh vị trí dưới video theo ý muốn */
-                    right: 20px;
-                    /* Điều chỉnh vị trí trái video theo ý muốn */
-                    color: #fff;
-                    /* Màu chữ */
-                    font-size: 18px;
-                    /* Cỡ chữ */
-                    font-weight: bold;
-                    /* Trọng lượng chữ */
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
-                    /* Hiệu ứng bóng chữ */
-                    .video_caption_text {
-                        width: 700px;
-                        height: 150px;
-                        text-align: center;
-                        background-color: rgba(0, 0, 0, 0.4);
-                        padding-top: 15px;
-
-                        .video_caption_text_h1 {
-                            h1 {
-                                margin-top: 10px;
-                            }
-                        }
-
-                        .video_caption_text_a {
-                            display: flex;
-                            justify-content: space-around;
-
-                            a {
-                                text-decoration: none;
-                                color: black;
-                                border: 0.3rem solid white;
-                                background-color: #fff;
-                                width: 300px;
-                                height: 40px;
-                            }
-                        }
-                    }
-                }
-            }
-            /* content */
-            .container {
-                .container_text {
-                    text-align: center;
-                    align-items: center;
-                    margin-top: 20px;
-                }
-
-                .container_img {
-                    display: flex;
-                    justify-content: space-around;
-                    img {
-                        margin: 10px;
-                        transition: transform 0.1s;
-                    }
-                    // img:hover  {
-                    //     transform: scale(0.9);
-                    //     /* Phóng to hình ảnh lên 120% */
-                    // }
-                }
-                .container_product {
-                    margin-top: 20px;
-                    .container_product_h1 {
-                        text-align: center;
-                        align-items: center;
-                    }
-
-                    .container_product_item {
-                        display: flex;
-                        justify-content: space-around;
-                        .container_product_item_a {
-                            position: relative;
-                            margin: 0px 15px;
-                            img {
-                                display: block;
-                                width: 300px;
-                                height: 300px;
-                            }
-                            .overlay {
-                                position: absolute;
-                                top: 0;
-                                bottom: 0;
-                                left: 0;
-                                right: 0;
-                                height: 300px;
-                                width: 300px;
-                                opacity: 0;
-                                transition: 0.5s ease;
-                                background-image: url("https://www.bulgari.com/on/demandware.static/-/Library-Sites-bulgariSharedLibrary/default/dw95edc4e8/the_maison/bulgari_history/SLIDER_2/3_410x410.jpg");
-                                .text {
-                                    color: white;
-                                    font-size: 20px;
-                                    position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    -webkit-transform: translate(-50%, -50%);
-                                    -ms-transform: translate(-50%, -50%);
-                                    transform: translate(-50%, -50%);
-                                    text-align: center;
-                                }
-                            }
-                            h5 {
-                                margin-top: 10px;
-                                margin-left: 40%;
-                                color: black;
-                                text-decoration: none;
-                            }
-                        }
-                        .container_product_item_a:hover .overlay {
-                            opacity: 1;
-                        }
-                        .container_product_item_b {
-                            position: relative;
-                            margin: 0px 15px;
-
-                            img {
-                                display: block;
-                                width: 300px;
-                                height: 300px;
-                            }
-
-                            .overlayb {
-                                position: absolute;
-                                top: 0;
-                                bottom: 0;
-                                left: 0;
-                                right: 0;
-                                height: 300px;
-                                width: 300px;
-                                opacity: 0;
-                                transition: 0.5s ease;
-                                background-image: url("https://www.bulgari.com/on/demandware.static/-/Library-Sites-bulgariSharedLibrary/default/dw3dfd5668/the_maison/bulgari_history/SLIDER_3/1_410x410.jpg");
-
-                                .textb {
-                                    color: white;
-                                    font-size: 20px;
-                                    position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    -webkit-transform: translate(-50%, -50%);
-                                    -ms-transform: translate(-50%, -50%);
-                                    transform: translate(-50%, -50%);
-                                    text-align: center;
-                                }
-                            }
-
-                            h5 {
-                                margin-top: 10px;
-                                margin-left: 40%;
-                            }
-                        }
-                        .container_product_item_b:hover .overlayb {
-                            opacity: 1;
-                        }
-
-                        .container_product_item_c {
-                            position: relative;
-                            margin: 0px 15px;
-
-                            img {
-                                display: block;
-                                width: 300px;
-                                height: 300px;
-                            }
-
-                            .overlayc {
-                                position: absolute;
-                                top: 0;
-                                bottom: 0;
-                                left: 0;
-                                right: 0;
-                                height: 300px;
-                                width: 300px;
-                                opacity: 0;
-                                transition: 0.5s ease;
-                                background-image: url("https://media2.bulgari.com/image/upload/f_auto,q_auto/v1673255576/collection/lvmh-watch-week/lvmh-ww-23/lvmh-ww-heritage-3_km139v.jpg");
-
-                                .textc {
-                                    color: white;
-                                    font-size: 20px;
-                                    position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    -webkit-transform: translate(-50%, -50%);
-                                    -ms-transform: translate(-50%, -50%);
-                                    transform: translate(-50%, -50%);
-                                    text-align: center;
-                                }
-                            }
-
-                            h5 {
-                                margin-top: 10px;
-                                margin-left: 40%;
-                            }
-                        }
-                        .container_product_item_c:hover .overlayc {
-                            opacity: 1;
-                        }
-                        .container_product_item_d {
-                            position: relative;
-                            margin: 0px 15px;
-
-                            img {
-                                display: block;
-                                width: 300px;
-                                height: 300px;
-                            }
-
-                            .overlayd {
-                                position: absolute;
-                                top: 0;
-                                bottom: 0;
-                                left: 0;
-                                right: 0;
-                                height: 300px;
-                                width: 300px;
-                                opacity: 0;
-                                transition: 0.5s ease;
-                                background-image: url("https://media2.bulgari.com/image/upload/f_auto,q_auto/v1680086022/collection/ABU/Fall-Winter-23/470x540-4_lhfzx4.jpg");
-
-                                .textd {
-                                    color: white;
-                                    font-size: 20px;
-                                    position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    -webkit-transform: translate(-50%, -50%);
-                                    -ms-transform: translate(-50%, -50%);
-                                    transform: translate(-50%, -50%);
-                                    text-align: center;
-                                }
-                            }
-
-                            h5 {
-                                margin-top: 10px;
-                                margin-left: 40%;
-                            }
-                        }
-                        .container_product_item_d:hover .overlayd {
-                            opacity: 1;
-                        }
-                    }
-                }
-                .container_product_page {
-                    margin-top: 20px;
-                    .container_product_page_h1 {
-                        text-align: center;
-                        align-items: center;
-                        .items {
-                            width: 90%;
-                            margin: 0px auto;
-                            margin-top: 100px;
-                        }
-                    }
-                }
-            }
+          }
         }
+      }
     }
-    /* footer */
-    .footer {
-        margin-top: 90px;
-        a {
-            text-decoration: none;
-        }
+  }
+  /* footer */
+  .footer {
+    margin-top: 90px;
+    a {
+      text-decoration: none;
     }
+  }
 }
 
 .test {
-    position: relative;
-    margin-top: 10px;
-    .testprev {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        z-index: 99999;
-        font-size: 40px;
-        font-weight: 900;
-        transform: translate(-150%, -50%);
-        color: grey;
-        cursor: pointer;
-    }
-    .testnext {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        z-index: 99999;
-        font-size: 40px;
-        font-weight: 900;
-        transform: translate(150%, -50%);
-        color: grey;
-        cursor: pointer;
-    }
+  position: relative;
+  margin-top: 10px;
+  .testprev {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 99999;
+    font-size: 40px;
+    font-weight: 900;
+    transform: translate(-150%, -50%);
+    color: grey;
+    cursor: pointer;
+  }
+  .testnext {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 99999;
+    font-size: 40px;
+    font-weight: 900;
+    transform: translate(150%, -50%);
+    color: grey;
+    cursor: pointer;
+  }
 }

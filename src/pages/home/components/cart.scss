@@ -1,101 +1,97 @@
 .cart_container {
-    margin-top: 30px;
-    margin-left: 90px;
-    width: 80%;
-    .cart_shipping {
+  margin-top: 30px;
+  margin-left: 90px;
+  width: 80%;
+  .cart_shipping {
+    display: flex;
+    border-bottom: 3px solid rgb(34, 41, 34);
+    p {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+  }
+  .cart_content {
+    display: flex;
+    margin-top: 20px;
+    width: 70%;
+
+    .cart_image {
+      img {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    .cart_item {
+      margin-left: 70px;
+      width: 100%;
+
+      h1 {
+        color: rgb(26, 30, 26);
+      }
+
+      .cart_price {
         display: flex;
-        border-bottom: 3px solid rgb(34, 41, 34);
-        p {
-            margin-top: 20px;
-            margin-left: 20px;
+        justify-content: space-between;
+
+        .price {
+          color: #eb7272;
+          font-weight: bold;
+          font-size: 20px;
         }
+
+        .cart_count {
+          width: 100px;
+          height: 30px;
+          text-align: center;
+          align-items: center;
+          border-radius: 5px;
+          background-color: #eb7272;
+          font-size: 20px;
+          letter-spacing: 5px;
+
+          button {
+            background-color: #eb7272;
+            border: none;
+            font-size: 20px;
+            letter-spacing: 5px;
+          }
+        }
+      }
     }
-    .cart_content {
-        display: flex;
-        margin-top: 20px;
-        width: 70%;
+  }
 
-        .cart_image {
-            img {
-                width: 200px;
-                height: 200px;
-            }
+  .total {
+    margin-top: 20px;
+    border-top: 3px solid rgb(34, 40, 34);
+    text-align: center;
+    align-items: center;
 
-        }
-
-        .cart_item {
-            margin-left: 70px;
-            width: 100%;
-
-            h1 {
-                color: rgb(26, 30, 26);
-            }
-
-            .cart_price {
-                display: flex;
-                justify-content: space-between;
-
-                .price {
-                    color: #eb7272;
-                    font-weight: bold;
-                    font-size: 20px;
-
-                }
-
-                .cart_count {
-                    width: 100px;
-                    height: 30px;
-                    text-align: center;
-                    align-items: center;
-                    border-radius: 5px;
-                    background-color:#eb7272;
-                    font-size: 20px;
-                    letter-spacing: 5px;
-
-                    button {
-                        background-color:#eb7272;
-                        border: none;
-                        font-size: 20px;
-                        letter-spacing: 5px;
-                    }
-
-
-                }
-            }
-        }
-
+    h1 {
+      margin-top: 20px;
     }
 
-    .total {
-        margin-top: 20px;
-        border-top: 3px solid rgb(34, 40, 34);
-        text-align: center;
-        align-items: center;
-
-        h1 {
-            margin-top: 20px;
-        }
-
-        button {
-            width: 400px;
-            height: 50px;
-            color: rgb(229, 219, 219);
-            font-size: 30px;
-            line-height: 17px;
-            padding: 8px;
-            border-radius: 11px;
-            font-family: Georgia, serif;
-            font-weight: normal;
-            text-decoration: none;
-            font-style: normal;
-            font-variant: normal;
-            text-transform: none;
-            background-image: linear-gradient(to right, rgb(20, 37, 30) 0%, rgb(54, 58, 56) 50%, rgb(36, 58, 52) 100%);
-            display: inline-block;
-        }
-
-
+    button {
+      width: 400px;
+      height: 50px;
+      color: rgb(229, 219, 219);
+      font-size: 30px;
+      line-height: 17px;
+      padding: 8px;
+      border-radius: 11px;
+      font-family: Georgia, serif;
+      font-weight: normal;
+      text-decoration: none;
+      font-style: normal;
+      font-variant: normal;
+      text-transform: none;
+      background-image: linear-gradient(
+        to right,
+        rgb(20, 37, 30) 0%,
+        rgb(54, 58, 56) 50%,
+        rgb(36, 58, 52) 100%
+      );
+      display: inline-block;
     }
-
-
+  }
 }
