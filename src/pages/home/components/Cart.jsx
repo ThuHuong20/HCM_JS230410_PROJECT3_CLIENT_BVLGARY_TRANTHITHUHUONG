@@ -276,7 +276,7 @@ export default function Cart() {
             onClick={() => {
               if (userStore.data == null) {
                 Modal.warning({
-                  content: "Ban can phai dang nhap!",
+                  content: "You can't wait to join!",
                   onOk: () => {},
                 });
               } else {

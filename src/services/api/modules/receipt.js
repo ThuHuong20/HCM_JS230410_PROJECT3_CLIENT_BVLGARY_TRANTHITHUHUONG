@@ -10,4 +10,25 @@ export default {
       },
     );
   },
+  findMany: async () => {
+    return await axios.get(
+      `${process.env.REACT_APP_SERVER_HOST_API}/receipts`,
+      {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      },
+    );
+  },
+  update: async (receiptId, data) => {
+    return await axios.patch(
+      `${process.env.REACT_APP_SERVER_HOST_API}/receipts/` + receiptId,
+      data,
+      {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      },
+    );
+  },
 };

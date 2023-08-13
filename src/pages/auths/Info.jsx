@@ -79,7 +79,7 @@ export default function Info() {
         <form
           onSubmit={async (e) => {
             e.preventDefault();
-            alert("vui lòng gửi email xác nhận!");
+            alert("Please email confirmation!");
             let result = await api.users.changePassword({
               new_pass: e.target.new_pass.value,
               old_pass: e.target.old_pass.value,

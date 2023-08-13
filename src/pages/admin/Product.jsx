@@ -191,7 +191,17 @@ export default function ProductManage() {
           </table>
         </div>
       </div>
-      {updateData ? <ProductUpdatePop productActions ={productActions} dispatch ={dispatch} updateData={updateData} setUpdateData={setUpdateData} categories={categories} /> : <></>}
+      {updateData ? (
+        <ProductUpdatePop
+          productActions={productActions}
+          dispatch={dispatch}
+          updateData={updateData}
+          setUpdateData={setUpdateData}
+          categories={categories}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

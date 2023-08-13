@@ -22,7 +22,7 @@ async function authenAdmin() {
   if (isAdmin) {
     return LazyLoad(() => import("./Admin"))();
   } else {
-    return <>404</>;
+    return <>Page not found</>;
   }
 }
 
@@ -31,6 +31,10 @@ export default (
     <Route
       path="product-manage"
       element={LazyLoad(() => import("./Product"))()}
+    ></Route>
+    <Route
+      path="receipt-manage"
+      element={LazyLoad(() => import("./Receipt"))()}
     ></Route>
   </Route>
 );
