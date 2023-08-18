@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "@api";
 import { Modal } from "antd";
+import './receipt.scss'
 export default function Receipt() {
   const [receipts, setReceipt] = useState(null);
   useEffect(() => {
@@ -53,14 +54,14 @@ export default function Receipt() {
         <tr>
           <th scope="col">#</th>
           <th scope="col">Receipt Code</th>
-          <th scope="col">total</th>
-          <th scope="col">paid</th>
-          <th scope="col">pay_mode</th>
-          <th scope="col">paid_time</th>
-          <th scope="col">create_at</th>
-          <th scope="col">user infor</th>
-          <th scope="col">products</th>
-          <th scope="col">tools</th>
+          <th scope="col">Total</th>
+          <th scope="col">Paid</th>
+          <th scope="col">Pay_mode</th>
+          <th scope="col">Paid_time</th>
+          <th scope="col">Create_at</th>
+          <th scope="col">User infor</th>
+          <th scope="col">Products</th>
+          <th scope="col">Tools</th>
         </tr>
       </thead>
       <tbody>

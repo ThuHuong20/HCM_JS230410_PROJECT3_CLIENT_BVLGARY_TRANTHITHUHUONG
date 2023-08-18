@@ -145,7 +145,7 @@ export default function Update({
           <button
             onClick={() => {
               Modal.confirm({
-                content: "Bạn có muốn đừng việt update ?",
+                content: "Do you want to not update?",
                 onOk: () => {
                   setUpdateData(null);
                 },

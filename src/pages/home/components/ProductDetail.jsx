@@ -1,10 +1,13 @@
 import { useEffect, useContext, useState } from "react";
 import "./productDetail.scss";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { RootContext } from "@/App";
 import { convertToUSD } from "@mieuteacher/meomeojs";
 import api from "@api";
+import { Alert } from "bootstrap";
+
 export default function ProductDetail() {
+  const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   const {
@@ -40,6 +43,8 @@ export default function ProductDetail() {
             .then((res) => {
               if (res.status == 200) {
                 dispatch(cartActions.setCartData(res.data.data));
+                // window.location.href ="/"
+                navigate('/')
               } else {
                 alert(res.data.message);
               }

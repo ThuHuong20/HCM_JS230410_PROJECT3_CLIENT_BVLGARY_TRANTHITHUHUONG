@@ -63,6 +63,7 @@ export default function Login() {
                           try {
                             let result = await api.users.login(data);
                             if (result.status == 200) {
+
                               if (result.data.token == undefined) {
                                 Modal.error({
                                   content: `${result.data.message}`,
@@ -88,19 +89,21 @@ export default function Login() {
                                     return item;
                                   });
                                   localStorage.removeItem("carts");
-                                  Modal.success({
-                                    content: `${result.data.message}`,
-                                    onOk: () => {
-                                      window.location.href = "/";
-                                    },
-                                  });
+                                  // Modal.success({
+                                  //   content: `${result.data.message}`,
+                                  //   onOk: () => {
+                                  //     window.location.href = "/";
+                                  //   },
+                                  // });
+                                  window.location.href = "/";
                                 } else {
-                                  Modal.success({
-                                    content: `${result.data.message}`,
-                                    onOk: () => {
-                                      window.location.href = "/";
-                                    },
-                                  });
+                                  // Modal.success({
+                                  //   content: `${result.data.message}`,
+                                  //   onOk: () => {
+                                  //     window.location.href = "/";
+                                  //   },
+                                  // });
+                                  window.location.href = "/";
                                 }
                               }
                             } else {

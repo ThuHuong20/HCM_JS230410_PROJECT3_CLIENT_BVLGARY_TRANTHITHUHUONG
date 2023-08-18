@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import api from "@api";
 import "./auth.scss";
+import "./product.scss";
 import { convertToUSD } from "@mieuteacher/meomeojs";
 import { message } from "antd";
 import ProductUpdatePop from "./product-components/Update";
@@ -54,7 +55,10 @@ export default function ProductManage() {
           className="form_add"
           onSubmit={async (eventForm) => {
             eventForm.preventDefault();
-
+              if(eventForm.target.des.value.length>=20){
+              alert("truong mo ta san pham qua dai");
+              return
+              }
             let newProductInfor = {
               category_id: Number(eventForm.target.category_id.value),
               name: eventForm.target.name.value,
@@ -173,9 +177,7 @@ export default function ProductManage() {
                     <span style={{ margin: "0px 30px" }}>
                       {product.quantity}
                     </span>
-                  </td>
-                  <td>
-                    <button
+                     <button
                       onClick={() => {
                         setUpdateData(product);
                       }}
@@ -185,6 +187,9 @@ export default function ProductManage() {
                       UpDate
                     </button>
                   </td>
+                  
+                   
+                  
                 </tr>
               ))}
             </tbody>

@@ -98,7 +98,7 @@ export default function Cart() {
     }
     if (e.target.innerText == "-") {
       if (quantity == 1) {
-        if (window.confirm("Xóa ok?!")) {
+        if (window.confirm("Do you want to delete the product?")) {
           // xóa
           deleteItem(item.id, 0);
         }
